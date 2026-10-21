@@ -28,31 +28,28 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-24">
       <div
-        className="pointer-events-none absolute right-[-8%] top-16 h-[420px] w-[420px] rounded-full bg-[#bfdbfe]/70 blur-3xl"
+        className="hero-glow pointer-events-none absolute right-[-8%] top-16 h-[420px] w-[420px] rounded-full blur-3xl"
         aria-hidden
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-8">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }}>
-          <p className="kicker">App studio</p>
-          <h1 className="mt-5 max-w-xl text-[3.15rem] font-bold leading-[0.96] tracking-[-0.045em] sm:text-6xl lg:text-[4.15rem]">
-            Mobile products,
-            <br />
-            shipped as
-            <br />
-            <span className="text-[var(--gold-deep)]">real apps.</span>
+          <p className="kicker">All-in-one ordering system</p>
+          <h1 className="mt-5 max-w-xl text-4xl font-bold leading-[1.02] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+            Online ordering, delivery, and the store desk
+            <span className="text-[var(--gold-deep)]"> in one system.</span>
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--muted)] md:text-lg">
-            A studio portfolio of customer apps, delivery tools, and the operations behind them. One featured case walks through a full ordering product.
+            Customers browse the menu and check out. The kitchen moves the order forward. The rider follows it to a Rawalpindi address, with cash or Easypaisa / JazzCash.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#work" className="btn-gold">
-              View selected work
+            <a href="#contact" className="btn-gold">
+              Get started
             </a>
-            <a href="#app" className="btn-line">
-              Open the case study
+            <a href="#products" className="btn-line">
+              See products
             </a>
           </div>
-          <p className="mt-8 text-sm text-[var(--muted)]">Ordering, rider operations, and store controls — shown as shipped product work.</p>
+          <p className="mt-8 text-sm text-[var(--muted)]">One kitchen. Customer app, rider hub, and store desk on the same order.</p>
         </motion.div>
 
         <div className="relative mx-auto h-[540px] w-full max-w-[520px] sm:h-[600px] lg:h-[640px] lg:max-w-none">

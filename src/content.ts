@@ -1,14 +1,99 @@
 export const BRAND = {
   name: 'App Studio',
   mark: 'A',
-  tagline: 'Mobile products for ordering, delivery, and the teams behind them.',
+  tagline: 'Online ordering, delivery, and the store desk for one kitchen.',
 } as const;
 
+export const CONTACT = {
+  whatsapp: '923125757800',
+  display: '0312 5757800',
+} as const;
+
+export const PRODUCTS = [
+  {
+    id: 'ordering',
+    title: 'Online ordering',
+    desc: 'Menus, deals, cart, and checkout in the customer app.',
+    points: ['Categories, search, and favorites', 'Burger sizes and add-ons', 'Cart, coupon, and account'],
+    href: '#ordering',
+    icon: 'order',
+  },
+  {
+    id: 'delivery',
+    title: 'Delivery fleet',
+    desc: 'Assignments, live status, and a map from the kitchen to the door.',
+    points: ['Assigned, active, and done', 'GPS while a delivery is active', 'Mark the order delivered'],
+    href: '#delivery',
+    icon: 'delivery',
+  },
+  {
+    id: 'store',
+    title: 'Store desk',
+    desc: 'Menu, incoming orders, riders, and the settings a store runs on.',
+    points: ['Orders and status changes', 'Menu, deals, and banners', 'Coupons, fees, and hours'],
+    href: '#store',
+    icon: 'menu',
+  },
+  {
+    id: 'payments',
+    title: 'Payments',
+    desc: 'Cash on delivery, or Easypaisa and JazzCash with proof.',
+    points: ['Cash when it arrives', 'Wallet transfer plus proof', 'Coupons and tips'],
+    href: '#payments',
+    icon: 'cash',
+  },
+  {
+    id: 'loyalty',
+    title: 'Loyalty & engagement',
+    desc: 'Favorites, reorder, ratings, wallet balance, and status alerts.',
+    points: ['Saved dishes and addresses', 'Reorder from history', 'Push and in-app alerts'],
+    href: '#loyalty',
+    icon: 'wallet',
+  },
+] as const;
+
 export const NAV = [
-  { href: '#work', id: 'work', label: 'Work' },
-  { href: '#app', id: 'app', label: 'Case study' },
-  { href: '#how-it-works', id: 'how-it-works', label: 'Process' },
+  { href: '#about', id: 'about', label: 'About' },
+  { href: '#products', id: 'products', label: 'Products' },
+  { href: '#how-it-works', id: 'how-it-works', label: 'How it works' },
   { href: '#technology', id: 'technology', label: 'Technology' },
+  { href: '#contact', id: 'contact', label: 'Contact' },
+] as const;
+
+export const PRODUCT_SECTION_IDS = ['ordering', 'delivery', 'store', 'payments', 'loyalty', 'tracking'] as const;
+
+export const INTEGRATIONS = ['Maps', 'Easypaisa', 'JazzCash', 'Push notifications', 'Expo', 'Railway'] as const;
+
+export const STATS = [
+  { value: 5, label: 'Order stages, from placed through delivered' },
+  { value: 3, label: 'Ways to pay: cash, Easypaisa, and JazzCash' },
+  { value: 3, label: 'Surfaces: customer app, rider hub, store desk' },
+] as const;
+
+export const BUSINESS_TYPES = ['Restaurant', 'Other food & beverage'] as const;
+
+export const STORE_COUNTS = ['1', '2–5', '6–15', '15+'] as const;
+
+export const FOOTER_COLUMNS = [
+  {
+    title: 'Products',
+    links: PRODUCTS.map((item) => ({ href: item.href, label: item.title })),
+  },
+  {
+    title: 'Platform',
+    links: [
+      { href: '#how-it-works', label: 'How it works' },
+      { href: '#tracking', label: 'Order tracking' },
+      { href: '#technology', label: 'Technology' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '#about', label: 'About' },
+      { href: '#contact', label: 'Contact' },
+    ],
+  },
 ] as const;
 
 export const WORK = [

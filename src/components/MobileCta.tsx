@@ -6,7 +6,7 @@ export function MobileCta() {
   const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
-    const target = document.getElementById('cta');
+    const target = document.getElementById('contact');
     const onScroll = () => {
       const pastHero = window.scrollY > 520;
       const ctaTop = target?.getBoundingClientRect().top ?? 9999;
@@ -21,8 +21,8 @@ export function MobileCta() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[var(--nav)] p-3 backdrop-blur-xl md:hidden">
-      <a href="#work" className="btn-gold w-full">
-        View work
+      <a href="#contact" className="btn-gold w-full">
+        Get started
       </a>
     </div>
   );

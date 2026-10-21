@@ -6,12 +6,12 @@ import { Reveal } from './Reveal';
 
 export function RestaurantSection() {
   return (
-    <section id="operations" className="scroll-mt-24 bg-[var(--bg-muted)] px-5 py-20 md:px-8 md:py-28">
+    <section id="delivery" className="scroll-mt-24 bg-[var(--bg-muted)] px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div>
           <Reveal>
-            <p className="kicker">Operations</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">Built for the Restaurant, Too</h2>
+            <p className="kicker">Delivery fleet</p>
+            <h2 id="store" className="mt-3 scroll-mt-28 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">Store desk and rider hub</h2>
             <p className="mt-4 max-w-xl text-[var(--muted)]">
               Behind the menu is an admin desk for the kitchen and a rider hub for the road. Orders, status, and delivery stay in one system.
             </p>

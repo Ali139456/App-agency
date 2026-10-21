@@ -6,7 +6,7 @@ import { Reveal } from './Reveal';
 
 export function Payments() {
   return (
-    <section className="px-5 py-20 md:px-8 md:py-28" aria-labelledby="payments-title">
+    <section id="payments" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28" aria-labelledby="payments-title">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="kicker">Checkout</p>

@@ -9,9 +9,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'App Studio — Mobile product portfolio',
+  title: 'App Studio — Ordering, delivery, and store operations',
   description:
-    'An app studio portfolio. Selected work covers customer ordering, rider delivery, and store operations, with a full case study of a shipped ordering product.',
+    'Online ordering, rider delivery, and a store desk for one kitchen. Menus, checkout, cash or Easypaisa / JazzCash, and live order status.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('food-app-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`,
+            __html: `try{if(localStorage.getItem('food-app-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
           }}
         />
       </head>

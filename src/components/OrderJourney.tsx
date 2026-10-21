@@ -21,7 +21,7 @@ export function OrderJourney() {
   }, [paused]);
 
   return (
-    <section className="px-5 py-20 md:px-8 md:py-28" aria-labelledby="journey-title">
+    <section id="tracking" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28" aria-labelledby="journey-title">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="kicker">After you order</p>
@@ -49,7 +49,7 @@ export function OrderJourney() {
                   type="button"
                   onClick={() => setActive(index)}
                   className={`shrink-0 rounded-full px-3.5 py-2 text-sm transition ${
-                    selected ? 'journey-selected bg-[#0f172a] text-white' : 'bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--ink)]'
+                    selected ? 'journey-selected bg-[#171717] text-white' : 'bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--ink)]'
                   }`}
                   aria-pressed={selected}
                 >

@@ -13,16 +13,18 @@ body {
 }
 
 .landing {
-  --ink: #0f172a;
-  --muted: #5c6778;
-  --bg: #f3f6fa;
-  --bg-muted: #e8eef5;
+  --ink: #171717;
+  --muted: #5c5c5c;
+  --bg: #ffffff;
+  --bg-muted: #f6f6f6;
   --surface: #ffffff;
-  --line: rgba(15, 23, 42, 0.08);
-  --gold: #2563eb;
-  --gold-deep: #1d4ed8;
-  --gold-soft: #e7eefc;
-  --nav: rgba(243, 246, 250, 0.86);
+  --line: rgba(23, 23, 23, 0.08);
+  --gold: #0f9f6e;
+  --gold-deep: #0b7a54;
+  --gold-soft: #e7f6ef;
+  --on-accent: #ffffff;
+  --panel-kicker: #6ee7b7;
+  --nav: rgba(255, 255, 255, 0.9);
   --chip: #ffffff;
   background: var(--bg);
   color: var(--ink);
@@ -31,22 +33,28 @@ body {
 }
 
 html.dark .landing {
-  --ink: #f4f7fb;
-  --muted: #a7b1c2;
-  --bg: #0b1020;
-  --bg-muted: #12182a;
-  --surface: #161d30;
+  --ink: #f5f7f8;
+  --muted: #98a2aa;
+  --bg: #07090b;
+  --bg-muted: #0c1013;
+  --surface: #11161b;
   --line: rgba(255, 255, 255, 0.08);
-  --gold: #3b82f6;
-  --gold-deep: #93c5fd;
-  --gold-soft: rgba(59, 130, 246, 0.16);
-  --nav: rgba(11, 16, 32, 0.86);
-  --chip: #1c253b;
+  --gold: #00d4e4;
+  --gold-deep: #5cefff;
+  --gold-soft: rgba(0, 212, 228, 0.14);
+  --on-accent: #041316;
+  --panel-kicker: #5cefff;
+  --nav: rgba(7, 9, 11, 0.88);
+  --chip: #161c21;
   color-scheme: dark;
 }
 
 .landing ::selection {
-  background: rgba(37, 99, 235, 0.22);
+  background: rgba(15, 159, 110, 0.22);
+}
+
+html.dark .landing ::selection {
+  background: rgba(0, 212, 228, 0.28);
 }
 
 .landing :focus-visible {
@@ -71,8 +79,12 @@ html.dark .landing {
 
 .btn-gold {
   background: var(--gold);
-  color: #ffffff;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset, 0 10px 24px -16px rgba(37, 99, 235, 0.9);
+  color: var(--on-accent);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset, 0 10px 24px -16px rgba(15, 159, 110, 0.85);
+}
+
+html.dark .btn-gold {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 12px 28px -14px rgba(0, 212, 228, 0.75);
 }
 
 .btn-gold:hover {
@@ -101,18 +113,39 @@ html.dark .btn-line:hover {
 }
 
 .ink-panel {
-  background: #0b1020;
-  color: #f4f7fb;
+  background: #171717;
+  color: #f7f7f7;
 }
 
 html.dark .ink-panel {
-  background: #10182c;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  background: #0c1013;
+  box-shadow: inset 0 0 0 1px rgba(0, 212, 228, 0.1);
 }
 
 html.dark .journey-selected {
   background: var(--gold) !important;
-  color: #ffffff !important;
+  color: #041316 !important;
+}
+
+html.dark .soft-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.hero-glow {
+  background: rgba(167, 243, 208, 0.5);
+}
+
+html.dark .hero-glow {
+  background: rgba(0, 212, 228, 0.28);
+}
+
+.cta-glow {
+  background: rgba(16, 185, 129, 0.3);
+}
+
+html.dark .cta-glow {
+  background: rgba(0, 212, 228, 0.34);
 }
 
 .soft-card {
@@ -136,7 +169,7 @@ html.dark .journey-selected {
 .phone {
   border-radius: 2.4rem;
   padding: 0.55rem 0.55rem 0.7rem;
-  background: linear-gradient(180deg, #1e2433 0%, #0c1018 100%);
+  background: linear-gradient(180deg, #2a2a2a 0%, #111111 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.14) inset,
     0 30px 60px -28px rgba(28, 25, 23, 0.55);
@@ -154,7 +187,7 @@ html.dark .journey-selected {
   position: relative;
   overflow: hidden;
   border-radius: 1.85rem;
-  background: #0b0f16;
+  background: #111111;
   aspect-ratio: 9 / 19.35;
 }
 
