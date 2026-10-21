@@ -1,127 +1,220 @@
 export const BRAND = {
   name: 'App Studio',
   mark: 'A',
-  tagline: 'Online ordering, delivery, and the store desk for one kitchen.',
+  tagline: 'We design and build software that removes operational bottlenecks and gives a business room to grow.',
 } as const;
 
-export const CONTACT = {
-  whatsapp: '923125757800',
-  display: '0312 5757800',
-} as const;
+export const NAV = [
+  { href: '/#services', id: 'services', label: 'Services' },
+  { href: '/#solutions', id: 'solutions', label: 'Solutions' },
+  { href: '/#work', id: 'work', label: 'Work' },
+  { href: '/#process', id: 'process', label: 'Process' },
+  { href: '/#about', id: 'about', label: 'About' },
+] as const;
 
-export const PRODUCTS = [
+export const CAPABILITY_LINE = ['Web', 'Mobile', 'SaaS', 'AI', 'Automation'] as const;
+
+export const TRUST = [
+  'Web Applications',
+  'Mobile Apps',
+  'SaaS Platforms',
+  'AI Systems',
+  'Business Software',
+  'E-commerce',
+] as const;
+
+export const SERVICES = [
   {
-    id: 'ordering',
-    title: 'Online ordering',
-    desc: 'Menus, deals, cart, and checkout in the customer app.',
-    points: ['Categories, search, and favorites', 'Burger sizes and add-ons', 'Cart, coupon, and account'],
-    href: '#ordering',
+    index: '01',
+    title: 'Custom Software',
+    desc: 'Systems shaped around the way a team already works, not a template they have to fight.',
+    icon: 'checkout',
+  },
+  {
+    index: '02',
+    title: 'Web Applications',
+    desc: 'Fast, clear web products for customers, staff, and the people who run the business.',
+    icon: 'discover',
+  },
+  {
+    index: '03',
+    title: 'Mobile Applications',
+    desc: 'iOS and Android products built in React Native, from first screen to store build.',
+    icon: 'digital',
+  },
+  {
+    index: '04',
+    title: 'SaaS Products',
+    desc: 'Multi-user products with accounts, roles, and a path from first release to the next one.',
+    icon: 'updates',
+  },
+  {
+    index: '05',
+    title: 'AI & Automation',
+    desc: 'Assistants, document handling, and workflow automation placed inside a real operation.',
+    icon: 'search',
+  },
+  {
+    index: '06',
+    title: 'E-commerce',
+    desc: 'Catalogs, carts, checkout, and the operational side of getting an order fulfilled.',
     icon: 'order',
   },
   {
-    id: 'delivery',
-    title: 'Delivery fleet',
-    desc: 'Assignments, live status, and a map from the kitchen to the door.',
-    points: ['Assigned, active, and done', 'GPS while a delivery is active', 'Mark the order delivered'],
-    href: '#delivery',
-    icon: 'delivery',
-  },
-  {
-    id: 'store',
-    title: 'Store desk',
-    desc: 'Menu, incoming orders, riders, and the settings a store runs on.',
-    points: ['Orders and status changes', 'Menu, deals, and banners', 'Coupons, fees, and hours'],
-    href: '#store',
+    index: '07',
+    title: 'ERP / POS / Business Systems',
+    desc: 'Counters, back offices, and internal tools that keep orders, stock, and staff in one place.',
     icon: 'menu',
   },
   {
-    id: 'payments',
-    title: 'Payments',
-    desc: 'Cash on delivery, or Easypaisa and JazzCash with proof.',
-    points: ['Cash when it arrives', 'Wallet transfer plus proof', 'Coupons and tips'],
-    href: '#payments',
-    icon: 'cash',
+    index: '08',
+    title: 'UI/UX & Product Design',
+    desc: 'Interfaces with a clear job: help someone finish a task without asking twice.',
+    icon: 'user',
+  },
+] as const;
+
+export const SOLUTIONS = [
+  { title: 'SaaS platforms', desc: 'Accounts, billing-ready structure, and a product people can return to.' },
+  { title: 'Admin dashboards', desc: 'The desk where a team sees the queue, changes status, and stays in control.' },
+  { title: 'ERP systems', desc: 'The operational record behind sales, stock, and the people doing the work.' },
+  { title: 'POS systems', desc: 'A counter that talks to the same orders the rest of the business can see.' },
+  { title: 'Customer portals', desc: 'A signed-in place to order, track, and come back without starting over.' },
+  { title: 'Mobile apps', desc: 'The product in someone’s pocket, including the builds that ship to stores.' },
+  { title: 'AI assistants', desc: 'A model wired into a task the business already repeats.' },
+  { title: 'Automation systems', desc: 'The handoffs that should happen when a status changes, without a person chasing them.' },
+  { title: 'E-commerce platforms', desc: 'From the catalog to checkout, then into fulfillment.' },
+  { title: 'Internal business tools', desc: 'The software staff use all day, built around their actual workflow.' },
+] as const;
+
+export const PROJECT = {
+  name: 'Food ordering system',
+  category: 'Mobile product',
+  summary: 'A customer app, a rider hub, and a store desk for one kitchen. Orders, payments, and delivery status stay on the same record.',
+  href: '/work/food-ordering',
+  tech: ['React Native', 'Expo', 'Next.js', 'Express', 'SQLite'],
+  views: [
+    {
+      title: 'Customer app',
+      category: 'Ordering',
+      desc: 'Menu, deals, cart, checkout, and account.',
+      image: '/screens/home-v2.webp',
+      href: '/work/food-ordering#ordering',
+    },
+    {
+      title: 'Rider hub',
+      category: 'Delivery',
+      desc: 'Assignments, live status, and the route to the door.',
+      image: '/screens/rider-full.webp',
+      href: '/work/food-ordering#delivery',
+    },
+    {
+      title: 'Store desk',
+      category: 'Operations',
+      desc: 'Menu, incoming orders, riders, and store settings.',
+      image: '/screens/drawer.webp',
+      href: '/work/food-ordering#store',
+    },
+  ],
+} as const;
+
+export const PRINCIPLES = [
+  {
+    index: '01',
+    title: 'Business first',
+    desc: 'We learn the workflow before we start writing code.',
   },
   {
-    id: 'loyalty',
-    title: 'Loyalty & engagement',
-    desc: 'Favorites, reorder, ratings, wallet balance, and status alerts.',
-    points: ['Saved dishes and addresses', 'Reorder from history', 'Push and in-app alerts'],
-    href: '#loyalty',
-    icon: 'wallet',
+    index: '02',
+    title: 'Built to scale',
+    desc: 'The structure is chosen for the next stage of the business, not only the first demo.',
+  },
+  {
+    index: '03',
+    title: 'AI-accelerated',
+    desc: 'Modern AI-assisted development, paired with engineering you can ship and maintain.',
+  },
+  {
+    index: '04',
+    title: 'End to end',
+    desc: 'Design, development, integrations, deployment, and support stay with one team.',
   },
 ] as const;
 
-export const NAV = [
-  { href: '#about', id: 'about', label: 'About' },
-  { href: '#products', id: 'products', label: 'Products' },
-  { href: '#how-it-works', id: 'how-it-works', label: 'How it works' },
-  { href: '#technology', id: 'technology', label: 'Technology' },
-  { href: '#contact', id: 'contact', label: 'Contact' },
+export const AGENCY_PROCESS = [
+  { step: '01', title: 'Discover', desc: 'Understand the business, the users, and the requirements that actually matter.' },
+  { step: '02', title: 'Strategy', desc: 'Define scope, architecture, and the product direction before the build spreads.' },
+  { step: '03', title: 'Design', desc: 'Create the experience and the interface people will use every day.' },
+  { step: '04', title: 'Build', desc: 'Develop, integrate, and test until the product holds up in real use.' },
+  { step: '05', title: 'Launch', desc: 'Deploy, watch how it behaves, and improve what the first users reveal.' },
 ] as const;
 
-export const PRODUCT_SECTION_IDS = ['ordering', 'delivery', 'store', 'payments', 'loyalty', 'tracking'] as const;
-
-export const INTEGRATIONS = ['Maps', 'Easypaisa', 'JazzCash', 'Push notifications', 'Expo', 'Railway'] as const;
-
-export const STATS = [
-  { value: 5, label: 'Order stages, from placed through delivered' },
-  { value: 3, label: 'Ways to pay: cash, Easypaisa, and JazzCash' },
-  { value: 3, label: 'Surfaces: customer app, rider hub, store desk' },
+export const TECH_GROUPS = [
+  { title: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS'] },
+  { title: 'Backend', items: ['Node.js', 'Express', 'REST APIs'] },
+  { title: 'Database', items: ['SQLite'] },
+  { title: 'Mobile', items: ['React Native', 'Expo'] },
+  { title: 'Infrastructure', items: ['Vercel', 'Railway', 'GitHub', 'EAS Build'] },
 ] as const;
 
-export const BUSINESS_TYPES = ['Restaurant', 'Other food & beverage'] as const;
+export const AI_USES = [
+  'AI assistants',
+  'LLM integrations',
+  'Document processing',
+  'Workflow automation',
+  'AI search',
+  'Data extraction',
+  'Customer support',
+] as const;
 
-export const STORE_COUNTS = ['1', '2–5', '6–15', '15+'] as const;
+export const CAPABILITIES = [
+  { title: 'Web, mobile, and custom software', desc: 'The product surfaces a business actually needs, built as one system.' },
+  { title: 'End-to-end product development', desc: 'From the first working scope through design, build, and launch.' },
+  { title: 'AI-accelerated workflows', desc: 'AI used where it shortens a real task, not as a layer on top of the page.' },
+  { title: 'Production-ready systems', desc: 'Software that can take orders, update status, and stay up after the demo.' },
+] as const;
+
+/** Add a quote only when a real client has given one. Empty means the section stays hidden. */
+export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [];
+
+export const PROJECT_TYPES = [
+  'Web application',
+  'Mobile application',
+  'SaaS product',
+  'Custom software',
+  'E-commerce',
+  'Something else',
+] as const;
 
 export const FOOTER_COLUMNS = [
   {
-    title: 'Products',
-    links: PRODUCTS.map((item) => ({ href: item.href, label: item.title })),
+    title: 'Services',
+    links: [
+      { href: '/#services', label: 'What we build' },
+      { href: '/#solutions', label: 'Solutions' },
+      { href: '/#technology', label: 'Technology' },
+    ],
   },
   {
-    title: 'Platform',
+    title: 'Work',
     links: [
-      { href: '#how-it-works', label: 'How it works' },
-      { href: '#tracking', label: 'Order tracking' },
-      { href: '#technology', label: 'Technology' },
+      { href: '/#work', label: 'Selected work' },
+      { href: '/work/food-ordering', label: 'Food ordering system' },
+      { href: '/#process', label: 'Process' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { href: '#about', label: 'About' },
-      { href: '#contact', label: 'Contact' },
+      { href: '/#about', label: 'About' },
+      { href: '/#contact', label: 'Start a project' },
     ],
   },
 ] as const;
 
-export const WORK = [
-  {
-    index: '01',
-    category: 'Consumer app',
-    title: 'Customer ordering',
-    desc: 'Menus, deals, cart, checkout, and account — the surface people use to place an order.',
-    image: '/screens/home.webp',
-    href: '#app',
-  },
-  {
-    index: '02',
-    category: 'Rider app',
-    title: 'Delivery operations',
-    desc: 'Assignments, live status, and a route from the kitchen to the door.',
-    image: '/screens/rider-full.webp',
-    href: '#operations',
-  },
-  {
-    index: '03',
-    category: 'Business tools',
-    title: 'Store controls',
-    desc: 'Menu, incoming orders, rider assignment, and the settings that keep a store running.',
-    image: '/screens/drawer.webp',
-    href: '#operations',
-  },
-] as const;
+export const CONTACT = {
+  whatsapp: '923125757800',
+} as const;
 
 export const HIGHLIGHTS = [
   {
@@ -153,49 +246,49 @@ export const HIGHLIGHTS = [
 
 export const FEATURES = [
   {
-    title: 'Discover the Menu',
+    title: 'Designed for fast discovery',
     desc: 'Browse burgers, Arabian, fried chicken, pasta, fries, and drinks — plus banners and deals on home.',
     icon: 'discover',
   },
   {
-    title: 'Smart Search',
+    title: 'Search built around real ordering behavior',
     desc: 'Find a meal from search, or filter by category, Popular, Deals, and Favorites.',
     icon: 'search',
   },
   {
-    title: 'Deals & Combos',
+    title: 'Deals placed where people already look',
     desc: 'Open featured offers such as Zinger + Wings and Family Feast and add them to the order.',
     icon: 'deal',
   },
   {
-    title: 'Easy Ordering',
+    title: 'Ordering without unnecessary friction',
     desc: 'Choose Regular, Large, or XLarge on burgers, then add fries or a drink.',
     icon: 'order',
   },
   {
-    title: 'Simple Checkout',
+    title: 'Checkout that stays explicit',
     desc: 'Review the cart, set a delivery pin, apply a coupon, and confirm payment.',
     icon: 'checkout',
   },
   {
-    title: 'Order Tracking',
+    title: 'Tracking from the kitchen to the door',
     desc: 'Follow placed, confirmed, preparing, on the way, and delivered — with a map once the rider is out.',
     icon: 'track',
   },
   {
-    title: 'Notifications',
+    title: 'Alerts when the order actually moves',
     desc: 'Push alerts on mobile when an order status changes, plus an in-app notifications list.',
     icon: 'bell',
   },
   {
-    title: 'Your Account',
+    title: 'An account worth opening again',
     desc: 'Sign in, save favorites and addresses, reopen past orders, and rate a delivery.',
     icon: 'user',
   },
 ] as const;
 
 export const FLOW = [
-  { id: 'home', src: '/screens/home.webp', label: 'Home' },
+  { id: 'home', src: '/screens/home-v2.webp', label: 'Home' },
   { id: 'menu', src: '/screens/menu.webp', label: 'Menu' },
   { id: 'cart', src: '/screens/cart.webp', label: 'Cart' },
   { id: 'account', src: '/screens/drawer.webp', label: 'Account' },

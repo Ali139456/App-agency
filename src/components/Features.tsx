@@ -9,10 +9,10 @@ export function Features() {
     <section id="features" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
-          <p className="kicker">Online ordering</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">Everything in the customer order</h2>
+          <p className="kicker">Customer app</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">The ordering experience</h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--muted)] md:text-lg">
-            From the home screen to the doorstep, each step stays simple: one menu, one kitchen, one order.
+            Home, menu, cart, and account for one kitchen. Each step below is something the app already does.
           </p>
         </Reveal>
 

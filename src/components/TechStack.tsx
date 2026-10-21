@@ -9,9 +9,9 @@ export function TechStack() {
       <div className="ink-panel mx-auto max-w-6xl rounded-[2rem] px-6 py-14 md:px-12 md:py-16">
         <Reveal className="max-w-2xl">
           <p className="text-[0.72rem] font-bold tracking-[0.16em] text-[var(--panel-kicker)] uppercase">Technology</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">Built for a Modern Experience</h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">The stack on this product</h2>
           <p className="mt-4 text-[#d4d4d4]">
-            Under the hood, the app combines a modern mobile stack with a scalable backend to deliver a fast and reliable ordering experience.
+            React Native and Expo on mobile, Next.js for the web, Express and SQLite behind the orders, Railway for the API.
           </p>
         </Reveal>
         <ul className="mt-10 flex flex-wrap gap-2.5">

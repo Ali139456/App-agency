@@ -21,8 +21,8 @@ export function MobileCta() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[var(--nav)] p-3 backdrop-blur-xl md:hidden">
-      <a href="#contact" className="btn-gold w-full">
-        Get started
+      <a href="/#contact" className="btn-gold w-full">
+        Start a project
       </a>
     </div>
   );

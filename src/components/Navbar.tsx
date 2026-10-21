@@ -1,17 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { BRAND, NAV, PRODUCT_SECTION_IDS, PRODUCTS } from '../content';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { BRAND, NAV } from '../content';
 import { ThemeToggle } from './ThemeToggle';
-
-const sectionIds = [...NAV.map((item) => item.id), ...PRODUCT_SECTION_IDS];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
   const [active, setActive] = useState('');
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -21,7 +18,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const nodes = sectionIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const nodes = NAV.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
     if (!nodes.length) return;
     const observer = new IntersectionObserver(
       (entries) => {
@@ -30,7 +27,7 @@ export function Navbar() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible?.target.id) setActive(visible.target.id);
       },
-      { rootMargin: '-40% 0px -45% 0px', threshold: [0.15, 0.4] }
+      { rootMargin: '-40% 0px -45% 0px', threshold: [0.15, 0.4] },
     );
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
@@ -45,90 +42,49 @@ export function Navbar() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setOpen(false);
-        setProductsOpen(false);
-      }
-    };
-    const onPointer = (event: MouseEvent) => {
-      if (!menuRef.current?.contains(event.target as Node)) setProductsOpen(false);
+      if (event.key === 'Escape') setOpen(false);
     };
     window.addEventListener('keydown', onKey);
-    window.addEventListener('mousedown', onPointer);
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      window.removeEventListener('mousedown', onPointer);
-    };
+    return () => window.removeEventListener('keydown', onKey);
   }, []);
-
-  const productsActive = active === 'products' || PRODUCT_SECTION_IDS.includes(active as (typeof PRODUCT_SECTION_IDS)[number]);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open ? 'border-b border-[var(--line)] bg-[var(--nav)] shadow-[0_8px_30px_-24px_rgba(28,25,23,0.45)] backdrop-blur-xl' : 'border-b border-transparent bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 pb-3 transition-colors duration-300 md:px-5 ${
+        scrolled || open ? 'bg-[var(--bg)]' : 'bg-transparent'
       }`}
     >
-      <div className={`mx-auto flex max-w-6xl items-center justify-between px-5 transition-all duration-300 md:px-8 ${scrolled ? 'h-14' : 'h-[4.5rem]'}`}>
-        <a href="#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-3 transition-all duration-300 md:px-4 ${
+          scrolled || open
+            ? 'h-14 border-[var(--line)] bg-[var(--bg)] shadow-[0_16px_40px_-28px_rgba(0,0,0,0.35)]'
+            : 'h-16 border-transparent bg-transparent'
+        }`}
+      >
+        <a href="/#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[var(--gold)] text-sm font-bold text-[var(--on-accent)]">{BRAND.mark}</span>
           <span className="text-[1.05rem] font-semibold tracking-tight">{BRAND.name}</span>
         </a>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Page">
-          {NAV.map((item) =>
-            item.id === 'products' ? (
-              <div key={item.id} className="relative" ref={menuRef}>
-                <button
-                  type="button"
-                  className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm transition ${
-                    productsActive || productsOpen ? 'bg-[var(--chip)] font-semibold text-[var(--ink)]' : 'text-[var(--muted)] hover:text-[var(--ink)]'
-                  }`}
-                  aria-expanded={productsOpen}
-                  aria-controls="products-menu"
-                  onClick={() => setProductsOpen((value) => !value)}
-                >
-                  {item.label}
-                  <svg viewBox="0 0 20 20" className={`h-3.5 w-3.5 transition ${productsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                    <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                {productsOpen ? (
-                  <div id="products-menu" role="menu" className="soft-card absolute left-0 top-[calc(100%+0.4rem)] w-80 p-2">
-                    {PRODUCTS.map((product) => (
-                      <a
-                        key={product.id}
-                        href={product.href}
-                        role="menuitem"
-                        className="block rounded-xl px-3 py-2.5 hover:bg-[var(--bg-muted)]"
-                        onClick={() => setProductsOpen(false)}
-                      >
-                        <span className="block text-sm font-semibold">{product.title}</span>
-                        <span className="mt-0.5 block text-xs leading-relaxed text-[var(--muted)]">{product.desc}</span>
-                      </a>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ) : (
-              <a
-                key={item.id}
-                href={item.href}
-                className={`rounded-full px-3.5 py-2 text-sm transition ${
-                  active === item.id ? 'bg-[var(--chip)] font-semibold text-[var(--ink)]' : 'text-[var(--muted)] hover:text-[var(--ink)]'
-                }`}
-                aria-current={active === item.id ? 'true' : undefined}
-              >
-                {item.label}
-              </a>
-            ),
-          )}
+          {NAV.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              className={`rounded-full px-3.5 py-2 text-sm transition ${
+                active === item.id ? 'bg-[var(--chip)] font-semibold text-[var(--ink)]' : 'text-[var(--muted)] hover:text-[var(--ink)]'
+              }`}
+              aria-current={active === item.id ? 'true' : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <a href="#contact" className="btn-gold hidden !min-h-10 !px-4 !text-sm sm:inline-flex">
-            Get started
+          <a href="/#contact" className="btn-gold hidden !min-h-10 !px-4 !text-sm lg:inline-flex">
+            Start a project
           </a>
           <button
             type="button"
@@ -145,45 +101,38 @@ export function Navbar() {
         </div>
       </div>
 
-      {open ? (
-        <nav id="mobile-nav" className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[var(--line)] bg-[var(--bg)] px-5 py-4 lg:hidden" aria-label="Mobile">
-          <div className="flex flex-col gap-1">
-            {NAV.map((item) =>
-              item.id === 'products' ? (
-                <div key={item.id}>
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-medium"
-                    aria-expanded={productsOpen}
-                    onClick={() => setProductsOpen((value) => !value)}
-                  >
-                    Products
-                    <svg viewBox="0 0 20 20" className={`h-4 w-4 transition ${productsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                      <path d="M5 8l5 5 5-5" strokeLinecap="round" />
-                    </svg>
-                  </button>
-                  {productsOpen ? (
-                    <div className="mb-1 ml-3 flex flex-col border-l border-[var(--line)] pl-3">
-                      {PRODUCTS.map((product) => (
-                        <a key={product.id} href={product.href} className="rounded-xl px-3 py-2 text-sm text-[var(--muted)]" onClick={() => setOpen(false)}>
-                          {product.title}
-                        </a>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <a key={item.id} href={item.href} className="rounded-xl px-3 py-3 text-base font-medium" onClick={() => setOpen(false)}>
+      <AnimatePresence>
+        {open ? (
+          <motion.nav
+            id="mobile-nav"
+            className="border-t border-[var(--line)] bg-[var(--bg)] px-5 py-4 lg:hidden"
+            aria-label="Mobile"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex flex-col gap-1 overflow-hidden">
+              {NAV.map((item, index) => (
+                <motion.a
+                  key={item.id}
+                  href={item.href}
+                  className="rounded-xl px-3 py-3 text-base font-medium"
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, x: 8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.04 * index }}
+                >
                   {item.label}
-                </a>
-              ),
-            )}
-            <a href="#contact" className="btn-gold mt-2" onClick={() => setOpen(false)}>
-              Get started
-            </a>
-          </div>
-        </nav>
-      ) : null}
+                </motion.a>
+              ))}
+              <a href="/#contact" className="btn-gold mt-2" onClick={() => setOpen(false)}>
+                Start a project
+              </a>
+            </div>
+          </motion.nav>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

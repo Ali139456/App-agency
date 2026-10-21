@@ -9,8 +9,8 @@ export function HowItWorks() {
     <section id="how-it-works" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-xl">
-          <p className="kicker">How it works</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">How It Works</h2>
+          <p className="kicker">Inside the product</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">How an order moves</h2>
         </Reveal>
 
         <div className="relative mt-14">

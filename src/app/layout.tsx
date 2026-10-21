@@ -9,9 +9,18 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'App Studio — Ordering, delivery, and store operations',
+  metadataBase: new URL('https://app-agency-nine.vercel.app'),
+  title: 'App Studio — Software, Web, Mobile & AI Development',
   description:
-    'Online ordering, rider delivery, and a store desk for one kitchen. Menus, checkout, cash or Easypaisa / JazzCash, and live order status.',
+    'We design and build custom software, web applications, mobile products, SaaS platforms and AI-powered systems for modern businesses.',
+  openGraph: {
+    title: 'App Studio — Software, Web, Mobile & AI Development',
+    description:
+      'We design and build custom software, web applications, mobile products, SaaS platforms and AI-powered systems for modern businesses.',
+    url: 'https://app-agency-nine.vercel.app',
+    siteName: 'App Studio',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${jakarta.variable} landing min-h-screen antialiased`}>{children}</body>
+      <body className={`${jakarta.variable} landing min-h-screen antialiased`} suppressHydrationWarning>{children}</body>
     </html>
   );
 }

@@ -15,6 +15,7 @@ type Props = {
   objectPosition?: string;
   fit?: 'cover' | 'contain';
   full?: boolean;
+  plain?: boolean;
 };
 
 export function PhoneFrame({
@@ -27,12 +28,13 @@ export function PhoneFrame({
   objectPosition = 'center top',
   fit = 'cover',
   full = false,
+  plain = false,
 }: Props) {
   return (
     <motion.figure
       className={`flex flex-col items-center ${className}`}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={plain ? false : { opacity: 0, y: 28 }}
+      whileInView={plain ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.65, delay, ease }}
     >
