@@ -1,9 +1,12 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BRAND, NAV } from '../content';
 import { ThemeToggle } from './ThemeToggle';
+
+const MotionLink = motion.create(Link);
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -61,14 +64,14 @@ export function Navbar() {
             : 'h-16 border-transparent bg-transparent'
         }`}
       >
-        <a href="/#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <Link href="/#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[var(--gold)] text-sm font-bold text-[var(--on-accent)]">{BRAND.mark}</span>
           <span className="text-[1.05rem] font-semibold tracking-tight">{BRAND.name}</span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Page">
           {NAV.map((item) => (
-            <a
+            <Link
               key={item.id}
               href={item.href}
               className={`rounded-full px-3.5 py-2 text-sm transition ${
@@ -77,15 +80,15 @@ export function Navbar() {
               aria-current={active === item.id ? 'true' : undefined}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <a href="/#contact" className="btn-gold hidden !min-h-10 !px-4 !text-sm lg:inline-flex">
+          <Link href="/#contact" className="btn-gold hidden !min-h-10 !px-4 !text-sm lg:inline-flex">
             Start a project
-          </a>
+          </Link>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--chip)] lg:hidden"
@@ -114,7 +117,7 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-1 overflow-hidden">
               {NAV.map((item, index) => (
-                <motion.a
+                <MotionLink
                   key={item.id}
                   href={item.href}
                   className="rounded-xl px-3 py-3 text-base font-medium"
@@ -124,11 +127,11 @@ export function Navbar() {
                   transition={{ delay: 0.04 * index }}
                 >
                   {item.label}
-                </motion.a>
+                </MotionLink>
               ))}
-              <a href="/#contact" className="btn-gold mt-2" onClick={() => setOpen(false)}>
+              <Link href="/#contact" className="btn-gold mt-2" onClick={() => setOpen(false)}>
                 Start a project
-              </a>
+              </Link>
             </div>
           </motion.nav>
         ) : null}

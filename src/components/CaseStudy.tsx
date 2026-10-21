@@ -1,6 +1,7 @@
 'use client';
 
 import { MotionConfig } from 'framer-motion';
+import Link from 'next/link';
 import { AppShowcase } from './AppShowcase';
 import { CustomerExperience } from './CustomerExperience';
 import { Features } from './Features';
@@ -20,9 +21,9 @@ export function CaseStudy() {
       <main>
         <section className="px-5 pt-32 pb-10 md:px-8 md:pt-36">
           <div className="mx-auto max-w-6xl">
-            <a href="/#work" className="text-sm font-semibold text-[var(--gold-deep)]">
+            <Link href="/#work" className="text-sm font-semibold text-[var(--gold-deep)]">
               ← Selected work
-            </a>
+            </Link>
             <Reveal>
               <p className="kicker mt-6">Case study</p>
               <h1 className="mt-3 max-w-3xl text-[clamp(2.2rem,5vw,3.6rem)] font-semibold tracking-[-0.045em]">Food ordering system</h1>
@@ -42,12 +43,12 @@ export function CaseStudy() {
         <TechStack />
         <section className="px-5 pb-20 md:px-8">
           <div className="mx-auto flex max-w-6xl flex-wrap gap-3">
-            <a href="/#contact" className="btn-gold">
+            <Link href="/#contact" className="btn-gold">
               Start a project
-            </a>
-            <a href="/#work" className="btn-line">
+            </Link>
+            <Link href="/#work" className="btn-line">
               Back to work
-            </a>
+            </Link>
           </div>
         </section>
       </main>

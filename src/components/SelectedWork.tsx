@@ -2,11 +2,13 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PROJECT } from '../content';
 import { PhoneFrame } from './PhoneFrame';
 import { Reveal } from './Reveal';
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const MotionLink = motion.create(Link);
 
 export function SelectedWork() {
   const [customer, rider, store] = PROJECT.views;
@@ -34,9 +36,9 @@ export function SelectedWork() {
                 </li>
               ))}
             </ul>
-            <a href={PROJECT.href} className="btn-gold mt-8">
+            <Link href={PROJECT.href} className="btn-gold mt-8">
               View case study
-            </a>
+            </Link>
           </Reveal>
 
           <div className="relative mx-auto hidden h-[560px] w-full max-w-[520px] lg:block">
@@ -78,7 +80,7 @@ export function SelectedWork() {
 
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:hidden">
           {PROJECT.views.map((view, index) => (
-            <motion.a
+            <MotionLink
               key={view.title}
               href={view.href}
               className="lift-card group overflow-hidden"
@@ -96,7 +98,7 @@ export function SelectedWork() {
                 <h3 className="mt-2 text-lg font-semibold">{view.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{view.desc}</p>
               </div>
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
       </div>
