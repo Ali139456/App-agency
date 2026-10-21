@@ -84,7 +84,7 @@ function Stage() {
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-x-clip pt-28 pb-16 md:pt-32 md:pb-20">
+    <section id="top" className="relative overflow-x-clip pt-40 pb-16 sm:pt-36 md:pt-32 md:pb-20">
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-6">
         <div className="min-w-0">
           <motion.p className="kicker" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease }}>
