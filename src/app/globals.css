@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+}
+
+.landing {
+  --ink: #0f172a;
+  --muted: #5c6778;
+  --bg: #f3f6fa;
+  --bg-muted: #e8eef5;
+  --surface: #ffffff;
+  --line: rgba(15, 23, 42, 0.08);
+  --gold: #2563eb;
+  --gold-deep: #1d4ed8;
+  --gold-soft: #e7eefc;
+  --nav: rgba(243, 246, 250, 0.86);
+  --chip: #ffffff;
+  background: var(--bg);
+  color: var(--ink);
+  color-scheme: light;
+  overflow-x: clip;
+}
+
+html.dark .landing {
+  --ink: #f4f7fb;
+  --muted: #a7b1c2;
+  --bg: #0b1020;
+  --bg-muted: #12182a;
+  --surface: #161d30;
+  --line: rgba(255, 255, 255, 0.08);
+  --gold: #3b82f6;
+  --gold-deep: #93c5fd;
+  --gold-soft: rgba(59, 130, 246, 0.16);
+  --nav: rgba(11, 16, 32, 0.86);
+  --chip: #1c253b;
+  color-scheme: dark;
+}
+
+.landing ::selection {
+  background: rgba(37, 99, 235, 0.22);
+}
+
+.landing :focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
+
+.btn-gold,
+.btn-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.35rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #ffffff;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset, 0 10px 24px -16px rgba(37, 99, 235, 0.9);
+}
+
+.btn-gold:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn-line {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(28, 25, 23, 0.14);
+}
+
+.btn-line:hover {
+  background: var(--chip);
+  border-color: rgba(28, 25, 23, 0.28);
+}
+
+html.dark .btn-line {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+html.dark .btn-line:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.ink-panel {
+  background: #0b1020;
+  color: #f4f7fb;
+}
+
+html.dark .ink-panel {
+  background: #10182c;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+html.dark .journey-selected {
+  background: var(--gold) !important;
+  color: #ffffff !important;
+}
+
+.soft-card {
+  background: var(--surface);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 1px rgba(28, 25, 23, 0.03), 0 16px 40px -28px rgba(28, 25, 23, 0.35);
+}
+
+.soft-card:hover {
+  box-shadow: 0 1px 1px rgba(28, 25, 23, 0.04), 0 22px 44px -24px rgba(28, 25, 23, 0.28);
+}
+
+.kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.phone {
+  border-radius: 2.4rem;
+  padding: 0.55rem 0.55rem 0.7rem;
+  background: linear-gradient(180deg, #1e2433 0%, #0c1018 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 30px 60px -28px rgba(28, 25, 23, 0.55);
+}
+
+.phone-speaker {
+  margin: 0.15rem auto 0.45rem;
+  height: 0.28rem;
+  width: 3.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.phone-screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.85rem;
+  background: #0b0f16;
+  aspect-ratio: 9 / 19.35;
+}
+
+.phone-screen-full {
+  aspect-ratio: 9 / 16;
+}
+
+.phone-screen img {
+  transform: scale(1.015);
+}
+
+.phone-screen img.fit-contain {
+  object-fit: contain;
+  object-position: center top;
+  transform: none;
+}
+
+.phone-screen img.fit-full {
+  object-fit: cover;
+  object-position: center center;
+  transform: none;
+}
+
+.float-card {
+  animation: float-card 7s ease-in-out infinite;
+}
+
+.float-card-delay {
+  animation-delay: -2.4s;
+}
+
+.float-card-late {
+  animation-delay: -4.2s;
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.journey-rail {
+  background: linear-gradient(90deg, var(--gold) var(--progress, 0%), rgba(28, 25, 23, 0.1) var(--progress, 0%));
+}
+
+.hide-scroll {
+  scrollbar-width: none;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing *,
+  .landing *::before,
+  .landing *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
